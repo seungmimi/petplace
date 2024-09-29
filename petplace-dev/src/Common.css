@@ -1,0 +1,101 @@
+/*==========================reset==========================*/
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  word-break: keep-all;
+}
+body.no-scroll {
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+button, input {
+  background: none;
+  border: none;
+  color: inherit;
+}
+button:enabled {
+  cursor: pointer;
+}
+img {
+  vertical-align: top;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+h1,
+h2,
+h3 {
+  font: inherit;
+}
+ol, ul {
+  list-style: none;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+/*==========================style==========================*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+@font-face {
+  font-family: 'HS-Regular';
+  src: url('https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HS-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  /*color*/
+  --color-main1: #2C6BC5;
+  --color-main2: #357EA7;
+  --color-main3: #00B1DA;
+  --color-main4: #F1F6FE;
+  --color-main5: #FFC700;
+
+  /*text color*/
+  --text-1: #231F20;
+  --text-2: #3F3D56;
+  --text-3: #AAAAAA;
+}
+
+body {
+  color: var(--text-1);
+  font-family: 'Noto Sans KR';
+  font-weight: 400;
+}
+
+.icon {
+    vertical-align:middle;
+    display:inline-flex;
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+.icon::before {
+    display:inline-block;
+    content:'';
+    vertical-align:middle;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center center;
+}
+.icon_arr_right{
+    width:16px;
+    height:16px;
+    background-image:url('../public/image/icon/icon-arr-right.svg');
+}
