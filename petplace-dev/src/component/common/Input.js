@@ -16,6 +16,6 @@ export const LabelInput = styled.label`
   display: flex;
   flex-direction: column;
   gap: 6px;
-  font-weight: bold;
+  font-weight: 700;
   color: #3F3D56;
 `

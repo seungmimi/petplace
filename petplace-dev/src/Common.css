@@ -25,6 +25,7 @@ button:enabled {
   cursor: pointer;
 }
 img {
+  width: 100%;
   vertical-align: top;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
