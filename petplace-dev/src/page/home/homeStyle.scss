@@ -1,19 +1,16 @@
+main {
+  padding-bottom: 100px;
+}
 .main-title-box {
   position: relative;
   width: 100%;
   height: 487px;
   text-align: center;
   background-color: var(--color-main4);
-  .sub-title{
-    font-size: 1.25rem;
-    margin-bottom: 14px;
-  }
+  border-bottom: 5px solid #2F3C1E;
   .main-title {
     text-align: center;
     width: 100%;
-    img {
-      max-width: 300px;
-    }
   }
 }
 
@@ -28,4 +25,54 @@
   justify-content: center;
   display: flex;
   gap: 16px;
+  margin-bottom: 70px;
+}
+
+.new-content {
+  width: 100%;
+  padding: 0px 50px;
+  max-width: 1057px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  .page-title {
+    text-align: center;
+    margin-bottom: 18px;
+    span{
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    strong {
+      display: block;
+      font-size: 2.5rem;
+      font-family: 'HS-Regular';
+    }
+  }
+
+  //react-slide custom
+  .slick-track {
+    padding: 10px 0;
+    display: flex;
+  }
+  .slick-slide {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .slick-prev, .slick-next {
+    width: 50px;
+    height: 50px;
+    z-index: 99;
+  }
+  .slick-next, .slick-next:hover {
+    background: url(../../../public/image/icon/icon-arr-right-btn.svg);
+  }
+  .slick-next::before, .slick-prev::before {
+    display: none;
+  }
+  .slick-prev, .slick-prev:hover {
+    background: url(../../../public/image/icon/icon-arr-left-btn.svg);
+  }
+  .slick-next:hover, .slick-prev:hover{
+    color: unset;
+    outline: unset;
+  }
 }

@@ -1,5 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 const MenuBox = styled.a`
   width: 100%;
@@ -9,14 +10,14 @@ const MenuBox = styled.a`
   border: 3px solid var(--text-1);
   position: relative;
   height: 150px;
-`
+`;
 const DecoImgBox = styled.div`
   position: absolute;
   left: 0;
   bottom: 0;
   width: 180px;
   height: 180px;
-`
+`;
 const TextBox = styled.div`
   position: absolute;
   right: 24px;
@@ -30,24 +31,28 @@ const TextBox = styled.div`
     font-size: 1.125rem;
     font-weight: 700;
   }
-`
+`;
 
 const PageMenu = ({ menuList }) => {
-  return (
-    menuList.map((e,i) => {
-      return (
-        <MenuBox key={i}>
-          <DecoImgBox>
-            <img src={process.env.PUBLIC_URL + `image/menu-${e.menu}.png`} alt={`${e.menu}`}/>
-          </DecoImgBox>
-          <TextBox>
-            <p className='sub-name'>{e.subTitle}</p>
-            <strong className='menu-name'>{e.mainTitle}</strong>
-          </TextBox>
-        </MenuBox>
-      )
-    })
-  )
-}
+  const navigate = useNavigate();
+  return menuList.map((e, i) => {
+    return (
+      <MenuBox
+        key={i}
+        onClick={() => {
+          navigate(`/${e.menu}`);
+        }}
+      >
+        <DecoImgBox>
+          <img src={process.env.PUBLIC_URL + `image/menu-${e.menu}.png`} alt={`${e.menu}`} />
+        </DecoImgBox>
+        <TextBox>
+          <p className="sub-name">{e.subTitle}</p>
+          <strong className="menu-name">{e.mainTitle}</strong>
+        </TextBox>
+      </MenuBox>
+    );
+  });
+};
 
-export default PageMenu
+export default PageMenu;

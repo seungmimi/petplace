@@ -101,10 +101,15 @@ body {
     background-size:contain;
     background-position:center center;
 }
-.icon_arr_right{
+.icon-arr-right{
     width:16px;
     height:16px;
     background-image:url('../public/image/icon/icon-arr-right.svg');
+}
+.icon-pin{
+  width:17px;
+  height:17px;
+  background-image:url('../public/image/icon/icon-pin.svg');
 }
 
 
