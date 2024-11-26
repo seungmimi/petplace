@@ -8,7 +8,6 @@ const HeaderBox = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 142px;
   width: 100%;
   position: fixed;
   top: 0;
@@ -16,7 +15,7 @@ const HeaderBox = styled.header`
   background-color: #fff;
   box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  padding: 40px 100px 20px 100px;
+  padding: 30px 100px 15px 100px;
   img {
     max-width: 162px;
   }
@@ -54,7 +53,7 @@ const Navigate = styled.nav`
 
 const UserFloating = styled.div`
   position: absolute;
-  top: 150px;
+  top: 106px;
   right: 100px;
   display: flex;
   flex-direction: column;
@@ -88,7 +87,7 @@ const Header = ({ userInfo }) => {
       </Link>
       <Navigate>
         <Link to={"/map"}>지도에서 둘러보기</Link>
-        <Link to={""}>카테고리에서 찾기</Link>
+        <Link to={"/search"}>카테고리에서 찾기</Link>
         <Link to={""}>즐겨찾기</Link>
         <div className="user-info">
           {userInfo.status ? (

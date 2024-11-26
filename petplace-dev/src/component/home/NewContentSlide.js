@@ -18,8 +18,8 @@ function NewContentSlide({ newState }) {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: false,
-    autoplaySpeed: 2000,
+    autoplay: true,
+    autoplaySpeed: 3000,
   };
   return (
     <div className="slider-container">

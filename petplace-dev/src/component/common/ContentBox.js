@@ -50,6 +50,7 @@ function ContentBox({ item }) {
         <div className="title-box">
           <div className="bage-box">
             <Bage>{item.category1}</Bage>
+            {item.category2 ? <Bage>{item.category2}</Bage> : ""}
           </div>
           <strong className="content-title">{item.title}</strong>
           <div className="location">
@@ -66,7 +67,13 @@ function ContentBox({ item }) {
           <strong className="info-title">연락처</strong>
           <p>{item.tel}</p>
         </div>
-        <BasicBtn>홈페이지 바로가기</BasicBtn>
+        {item.url !== null ? (
+          <BasicBtn onClick={() => window.open(item.url, "_blank")}>홈페이지 바로가기</BasicBtn>
+        ) : (
+          <BasicBtn $line disabled>
+            홈페이지 준비중
+          </BasicBtn>
+        )}
       </BoxWrap>
     </div>
   );

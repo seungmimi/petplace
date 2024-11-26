@@ -1,0 +1,11 @@
+.map-content-wrap {
+  max-width: 437px;
+  width: 40%;
+  position: absolute;
+  z-index: 999;
+  top: 196px;
+  left: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
