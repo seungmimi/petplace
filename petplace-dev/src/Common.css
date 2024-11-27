@@ -118,6 +118,16 @@ body {
   height: 17px;
   background-image: url("../public/image/icon/icon-pin.svg");
 }
+.icon-bookmark {
+  width: 40px;
+  height: 40px;
+  background-image: url("../public/image/icon/icon-bookmark.svg");
+}
+.icon-bookmark-active {
+  width: 40px;
+  height: 40px;
+  background-image: url("../public/image/icon/icon-bookmark-active.svg");
+}
 
 /*custom-scroll*/
 .custom-scroll-1::-webkit-scrollbar {

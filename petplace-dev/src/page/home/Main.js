@@ -3,11 +3,11 @@ import GreetingBox from "../../component/home/GreetingBox";
 import "./homeStyle.scss";
 import PageMenu from "../../component/home/PageMenu";
 import NewContentSlide from "../../component/home/NewContentSlide";
-import Footer from "../../component/Footer";
 import TopBannerBox from "../../component/home/TopBannerBox";
 import { useRecoilValue } from "recoil";
 import { userInfo } from "../../recoil/UserAtom";
 import { kcisaApi } from "../../api/KcisaApi";
+//import { useCollection } from "../../hooks/useCollection";
 
 function Main() {
   const loginInfo = useRecoilValue(userInfo);
@@ -17,6 +17,9 @@ function Main() {
     { menu: "bookmark", mainTitle: "즐겨찾기", subTitle: "나의 place pick!" },
   ];
   const [newState, setNewState] = useState([]);
+
+  //firebase에서 사용자가 추가한 즐겨찾기 찾아오기
+  //const { documents, error } = useCollection("bookmark", ["userId", "==", loginInfo.uid]);
 
   useEffect(() => {
     const apiData = async () => {

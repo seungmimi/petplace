@@ -88,7 +88,7 @@ const Header = ({ userInfo }) => {
       <Navigate>
         <Link to={"/map"}>지도에서 둘러보기</Link>
         <Link to={"/search"}>카테고리에서 찾기</Link>
-        <Link to={""}>즐겨찾기</Link>
+        <Link to={"/bookmark"}>즐겨찾기</Link>
         <div className="user-info">
           {userInfo.status ? (
             <BasicBtn

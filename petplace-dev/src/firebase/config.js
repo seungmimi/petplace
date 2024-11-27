@@ -5,6 +5,11 @@ import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+// const firestore = initializeApp.firestore();
+// firestore.settings({
+//   timestampsInSnapshots: true, // 예시 설정
+// });
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -22,4 +27,4 @@ const appFireStore = getFirestore(app);
 // 인증 초기화
 const appAuth = getAuth();
 
-export { appFireStore, appAuth }
+export { appFireStore, appAuth };

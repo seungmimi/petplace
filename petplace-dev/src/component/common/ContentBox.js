@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Bage } from "./Bage";
 import { BasicBtn } from "./Button";
+import { useFirestore } from "../../hooks/useFirestore";
+import { userInfo } from "../../recoil/UserAtom";
+import { useRecoilValue } from "recoil";
+import { useCollection } from "../../hooks/useCollection";
 
 const BoxWrap = styled.div`
   padding: 35px 30px;
@@ -12,10 +16,18 @@ const BoxWrap = styled.div`
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   .title-box {
+    .top-box {
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .bookmark-wrap {
+      margin-top: 0;
+    }
     .bage-box {
       display: flex;
       gap: 10px;
-      margin-bottom: 15px;
     }
     .content-title {
       display: block;
@@ -34,7 +46,6 @@ const BoxWrap = styled.div`
       }
     }
   }
-
   .info-box {
     .info-title {
       font-weight: 700;
@@ -44,13 +55,51 @@ const BoxWrap = styled.div`
 `;
 
 function ContentBox({ item }) {
+  const [isBookmark, setIsBookmark] = useState(false);
+  const [id, setId] = useState("");
+  const userId = useRecoilValue(userInfo).uid;
+  const { documents } = useCollection("bookmark", ["userId", "==", userId]);
+  const { addDocument, deleteDocument } = useFirestore("bookmark");
+
+  useEffect(() => {
+    if (documents && userId) {
+      const found = documents.find((e) => e.item.title === item.title);
+      if (found) {
+        setIsBookmark(true);
+        setId(found.id); // ID 설정
+      } else {
+        setIsBookmark(false);
+        setId(""); // 북마크가 없을 경우 ID 초기화
+      }
+    }
+  }, [documents, item.title]);
+
+  const toggleBookmark = (e) => {
+    e.preventDefault();
+    if (isBookmark) {
+      deleteDocument({ id }); // ID 전달
+    } else {
+      addDocument({ userId, item });
+    }
+  };
+
   return (
     <div>
       <BoxWrap>
         <div className="title-box">
-          <div className="bage-box">
-            <Bage>{item.category1}</Bage>
-            {item.category2 ? <Bage>{item.category2}</Bage> : ""}
+          <div className="top-box">
+            <div className="bage-box">
+              <Bage>{item.category1}</Bage>
+              {item.category2 ? <Bage>{item.category2}</Bage> : ""}
+            </div>
+            <button
+              className="bookmark-wrap"
+              onClick={(e) => {
+                toggleBookmark(e);
+              }}
+            >
+              <i className={`icon ${isBookmark ? "icon-bookmark-active" : "icon-bookmark"}`} />
+            </button>
           </div>
           <strong className="content-title">{item.title}</strong>
           <div className="location">
