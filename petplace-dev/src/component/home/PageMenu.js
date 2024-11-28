@@ -33,14 +33,18 @@ const TextBox = styled.div`
   }
 `;
 
-const PageMenu = ({ menuList }) => {
+const PageMenu = ({ menuList, loginInfo, setModalOpen }) => {
   const navigate = useNavigate();
   return menuList.map((e, i) => {
     return (
       <MenuBox
         key={i}
         onClick={() => {
-          navigate(`/${e.menu}`);
+          if (e.menu === "bookmark") {
+            loginInfo.status ? navigate(`/${e.menu}`) : setModalOpen(true);
+          } else {
+            navigate(`/${e.menu}`);
+          }
         }}
       >
         <DecoImgBox>

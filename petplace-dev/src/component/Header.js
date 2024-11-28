@@ -88,23 +88,27 @@ const Header = ({ userInfo }) => {
       <Navigate>
         <Link to={"/map"}>지도에서 둘러보기</Link>
         <Link to={"/search"}>카테고리에서 찾기</Link>
-        <Link to={"/bookmark"}>즐겨찾기</Link>
-        <div className="user-info">
-          {userInfo.status ? (
-            <BasicBtn
-              $line
-              className="user-btn"
-              onClick={() => {
-                setFloatOpen(!floatOpen);
-              }}
-            >
-              <img src={process.env.PUBLIC_URL + "image/basic-profile.png"} alt="" />
-              <strong>
-                {userInfo.name}
-                <span> 님</span>
-              </strong>
-            </BasicBtn>
-          ) : (
+        {userInfo.status ? (
+          <>
+            <Link to={"/bookmark"}>즐겨찾기</Link>
+            <div className="user-info">
+              <BasicBtn
+                $line
+                className="user-btn"
+                onClick={() => {
+                  setFloatOpen(!floatOpen);
+                }}
+              >
+                <img src={process.env.PUBLIC_URL + "image/basic-profile.png"} alt="" />
+                <strong>
+                  {userInfo.name}
+                  <span> 님</span>
+                </strong>
+              </BasicBtn>
+            </div>
+          </>
+        ) : (
+          <div className="user-info">
             <BasicBtn
               className="login-btn"
               onClick={() => {
@@ -113,12 +117,11 @@ const Header = ({ userInfo }) => {
             >
               로그인
             </BasicBtn>
-          )}
-        </div>
+          </div>
+        )}
       </Navigate>
       {floatOpen ? (
         <UserFloating>
-          <Link>내 정보 수정</Link>
           <Link onClick={logout}>로그아웃</Link>
         </UserFloating>
       ) : (

@@ -128,6 +128,12 @@ body {
   height: 40px;
   background-image: url("../public/image/icon/icon-bookmark-active.svg");
 }
+.icon-close {
+  width: 25px;
+  height: 25px;
+  background-image: url("../public/image/icon/icon-plus.svg");
+  transform: rotate(45deg);
+}
 
 /*custom-scroll*/
 .custom-scroll-1::-webkit-scrollbar {
@@ -139,6 +145,19 @@ body {
 }
 .custom-scroll-1::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0); /*스크롤바 뒷 배경 색상*/
+}
+
+.custom-scroll-2::-webkit-scrollbar {
+  width: 16px;
+  border: 5px solid #ddd;
+}
+.custom-scroll-2::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 10px;
+  border: 5px solid #fff;
+}
+.custom-scroll-2::-webkit-scrollbar-track {
+  background: #fff; /*스크롤바 뒷 배경 색상*/
 }
 
 /*공통 스타일*/

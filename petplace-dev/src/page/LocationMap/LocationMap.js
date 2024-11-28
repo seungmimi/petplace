@@ -3,6 +3,8 @@ import ContentTitleBox from "../../component/common/ContentTitleBox";
 import ContentBox from "../../component/common/ContentBox";
 import { kcisaApi } from "../../api/KcisaApi";
 import "./locationMap.scss";
+import { useNavigate } from "react-router-dom";
+import Modal from "../../component/common/Modal";
 
 const { kakao } = window;
 
@@ -10,6 +12,12 @@ function LocationMap() {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [positions, setPositions] = useState([]);
   const mapContainerRef = useRef(null);
+
+  const navigate = useNavigate();
+  const [modalOpen, setModalOpen] = useState(false);
+  const modalToggle = () => {
+    setModalOpen((prev) => !prev);
+  };
 
   useEffect(() => {
     const apiData = async () => {
@@ -73,14 +81,28 @@ function LocationMap() {
               description: selectedMarker.description,
               charge: selectedMarker.charge,
               tel: selectedMarker.tel,
+              url: selectedMarker.url,
             }}
+            setModalOpen={setModalOpen}
           />
         ) : (
           ""
         )}
       </div>
-
       <div id="map" ref={mapContainerRef} style={{ height: "calc(100vh - 160px)", width: "100%" }}></div>
+      {modalOpen ? (
+        <Modal
+          toggle={modalToggle}
+          title="로그인 필요"
+          content1="로그인이 필요한 서비스 입니다"
+          content2="로그인 하시겠습니까?"
+          actionFn={() => {
+            navigate("/login");
+          }}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 }

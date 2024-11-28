@@ -6,9 +6,18 @@ import "./search.scss";
 import Catagory from "../../component/search/Catagory";
 import LoadingModal from "../../component/common/Loading";
 
+import { useNavigate } from "react-router-dom";
+import Modal from "../../component/common/Modal";
+
 function Search() {
   const [filterList, setFilterList] = useState("");
   const [menuName, setMenuName] = useState("");
+
+  const navigate = useNavigate();
+  const [modalOpen, setModalOpen] = useState(false);
+  const modalToggle = () => {
+    setModalOpen((prev) => !prev);
+  };
 
   //무한 스크롤
   const [isBottom, setIsBottom] = useState(false);
@@ -84,13 +93,26 @@ function Search() {
             {filterList.map((e, i) => {
               return (
                 <li>
-                  <ContentBox item={e} key={i} />
+                  <ContentBox item={e} key={i} setModalOpen={setModalOpen} />
                 </li>
               );
             })}
           </ul>
         )}
       </div>
+      {modalOpen ? (
+        <Modal
+          toggle={modalToggle}
+          title="로그인 필요"
+          content1="로그인이 필요한 서비스 입니다"
+          content2="로그인 하시겠습니까?"
+          actionFn={() => {
+            navigate("/login");
+          }}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 }

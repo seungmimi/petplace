@@ -4,6 +4,7 @@ import { BasicInput, LabelInput } from "../../component/common/Input";
 import { BasicBtn } from "../../component/common/Button";
 import { Link } from "react-router-dom";
 import { useSignup } from "../../hooks/useSignup";
+import LoadingModal from "../../component/common/Loading";
 
 function Login() {
   const { error, isPending, signup } = useSignup();
@@ -80,16 +81,24 @@ function Login() {
                 }}
               />
             </LabelInput>
-
-            <BasicBtn
-              type="submit"
-              className="submit-btn"
-              onClick={(e) => {
-                handleSubmit(e);
-              }}
-            >
-              회원가입
-            </BasicBtn>
+            {isPending ? (
+              <>
+                <LoadingModal />
+                <BasicBtn disabled $line className="submit-btn">
+                  회원 가입 진행중입니다
+                </BasicBtn>
+              </>
+            ) : (
+              <BasicBtn
+                type="submit"
+                className="submit-btn"
+                onClick={(e) => {
+                  handleSubmit(e);
+                }}
+              >
+                회원가입
+              </BasicBtn>
+            )}
           </form>
           <div className="under-text-box">
             <Link to="/login" className="under-text">

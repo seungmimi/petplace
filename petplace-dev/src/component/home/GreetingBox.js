@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useLogout } from "../../hooks/useLogout";
+import ImageModal from "../common/ImageModal";
 
 const SideBox = styled.div`
   width: 232px;
@@ -53,11 +54,24 @@ const MenuArea = styled.ul`
     border-top: 1px solid #d1d3d4;
     text-align: center;
     cursor: pointer;
+    > * {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .guide-btn {
+      font-size: 1rem;
+      color: inherit;
+    }
   }
 `;
 
 const GreetingBox = ({ loginInfo }) => {
   const { error, isPending, logout } = useLogout();
+  const [openGuide, setOpenGuide] = useState(false);
+  const toggleGuide = () => {
+    setOpenGuide((prev) => !prev);
+  };
   return (
     <SideBox>
       {loginInfo.status ? (
@@ -88,10 +102,7 @@ const GreetingBox = ({ loginInfo }) => {
       {loginInfo.status ? (
         <MenuArea>
           <li>
-            <a href="#">즐겨찾기</a>
-          </li>
-          <li>
-            <a href="#">내 정보 수정</a>
+            <Link to="/bookmark">즐겨찾기</Link>
           </li>
           <li>
             <p onClick={logout}>로그아웃</p>
@@ -100,13 +111,21 @@ const GreetingBox = ({ loginInfo }) => {
       ) : (
         <MenuArea>
           <li>
-            <a href="#">가이드 보러가기</a>
+            <button
+              className="guide-btn"
+              onClick={() => {
+                setOpenGuide(true);
+              }}
+            >
+              가이드 보러가기
+            </button>
           </li>
           <li>
             <Link to="/login">로그인</Link>
           </li>
         </MenuArea>
       )}
+      {openGuide ? <ImageModal toggle={toggleGuide} /> : ""}
     </SideBox>
   );
 };

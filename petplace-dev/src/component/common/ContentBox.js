@@ -54,7 +54,7 @@ const BoxWrap = styled.div`
   }
 `;
 
-function ContentBox({ item }) {
+function ContentBox({ item, setModalOpen }) {
   const [isBookmark, setIsBookmark] = useState(false);
   const [id, setId] = useState("");
   const userId = useRecoilValue(userInfo).uid;
@@ -76,10 +76,14 @@ function ContentBox({ item }) {
 
   const toggleBookmark = (e) => {
     e.preventDefault();
-    if (isBookmark) {
-      deleteDocument({ id }); // ID 전달
+    if (userId === "") {
+      setModalOpen(true);
     } else {
-      addDocument({ userId, item });
+      if (isBookmark) {
+        deleteDocument({ id }); // ID 전달
+      } else {
+        addDocument({ userId, item });
+      }
     }
   };
 

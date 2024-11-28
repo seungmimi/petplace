@@ -7,9 +7,12 @@ import TopBannerBox from "../../component/home/TopBannerBox";
 import { useRecoilValue } from "recoil";
 import { userInfo } from "../../recoil/UserAtom";
 import { kcisaApi } from "../../api/KcisaApi";
+import Modal from "../../component/common/Modal";
+import { useNavigate } from "react-router-dom";
 //import { useCollection } from "../../hooks/useCollection";
 
 function Main() {
+  const navigate = useNavigate();
   const loginInfo = useRecoilValue(userInfo);
   const menuList = [
     { menu: "map", mainTitle: "지도에서 둘러보기", subTitle: "어디로 갈지 정하지 못하셨나요?" },
@@ -18,8 +21,10 @@ function Main() {
   ];
   const [newState, setNewState] = useState([]);
 
-  //firebase에서 사용자가 추가한 즐겨찾기 찾아오기
-  //const { documents, error } = useCollection("bookmark", ["userId", "==", loginInfo.uid]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const modalToggle = () => {
+    setModalOpen((prev) => !prev);
+  };
 
   useEffect(() => {
     const apiData = async () => {
@@ -48,15 +53,28 @@ function Main() {
 
         <section className="page-nav">
           <h2 className="a11y-hidden">페이지 네비게이션</h2>
-          <PageMenu menuList={menuList} />
+          <PageMenu menuList={menuList} loginInfo={loginInfo} setModalOpen={setModalOpen} />
         </section>
         <section className="new-content">
           <h2 className="page-title">
             <span>새로 생겼어요!</span>
             <strong>NEW PLACE</strong>
           </h2>
-          {newState.length !== 0 ? <NewContentSlide newState={newState} /> : ""}
+          {newState.length !== 0 ? <NewContentSlide newState={newState} setModalOpen={setModalOpen} /> : ""}
         </section>
+        {modalOpen ? (
+          <Modal
+            toggle={modalToggle}
+            title="로그인 필요"
+            content1="로그인이 필요한 서비스 입니다"
+            content2="로그인 하시겠습니까?"
+            actionFn={() => {
+              navigate("/login");
+            }}
+          />
+        ) : (
+          ""
+        )}
       </main>
     </>
   );
