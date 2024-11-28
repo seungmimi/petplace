@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/petplace/static/css/main.927723a7.css",
-    "main.js": "/petplace/static/js/main.8175002f.js",
+    "main.js": "/petplace/static/js/main.c4780617.js",
     "static/media/deco-walking.png": "/petplace/static/media/deco-walking.7ef7a9e9ece23d058d54.png",
     "static/media/icon-pin.svg": "/petplace/static/media/icon-pin.1c9800cd29c0075f6c2c.svg",
     "static/media/slick.svg": "/petplace/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -17,10 +17,10 @@
     "static/media/icon-arr-bottom.svg": "/petplace/static/media/icon-arr-bottom.f682f9e054f8df06ed4c.svg",
     "static/media/icon-arr-right.svg": "/petplace/static/media/icon-arr-right.f8cd2bf4a3581d917887.svg",
     "main.927723a7.css.map": "/petplace/static/css/main.927723a7.css.map",
-    "main.8175002f.js.map": "/petplace/static/js/main.8175002f.js.map"
+    "main.c4780617.js.map": "/petplace/static/js/main.c4780617.js.map"
   },
   "entrypoints": [
     "static/css/main.927723a7.css",
-    "static/js/main.8175002f.js"
+    "static/js/main.c4780617.js"
   ]
 }
