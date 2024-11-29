@@ -75,7 +75,7 @@ function ImageModal({ toggle }) {
           </button>
         </div>
         <div className="modal-content custom-scroll-2">
-          <img src={process.env.PUBLIC_URL + "image/guidePage.png"} alt="" />
+          <img src={process.env.PUBLIC_URL + "/image/guidePage.png"} alt="" />
         </div>
       </ModalBox>
     </ModalArea>

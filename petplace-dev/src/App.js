@@ -11,6 +11,7 @@ import LocationMap from "./page/LocationMap/LocationMap";
 import ScrollToTop from "./hooks/useScrollTop";
 import Search from "./page/search/Search";
 import Bookmark from "./page/bookmark/Bookmark";
+import { HashRouter } from "react-router-dom";
 
 function App() {
   const loginInfo = useRecoilValue(userInfo);
@@ -34,10 +35,10 @@ function App() {
 }
 
 const RootApp = () => (
-  <BrowserRouter>
+  <HashRouter basename={process.env.PUBLIC_URL}>
     <ScrollToTop />
     <App />
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default RootApp;

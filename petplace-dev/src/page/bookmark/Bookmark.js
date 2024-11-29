@@ -17,7 +17,7 @@ function Bookmark() {
     <div className="has-head basic-page-layout">
       <div className="search-wrap">
         <div className="search-filter-wrap">
-          <ContentTitleBox title="카테고리로 찾기" subTitle="나의 반려동물과 갈수 있는 장소를 카테고리로 한눈에!" image="search" />
+          <ContentTitleBox title="즐겨찾기" subTitle="나의 place pick!" image="bookmark" />
           {/* <Catagory /> */}
         </div>
         {documents?.length === 0 ? (

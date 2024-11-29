@@ -48,7 +48,7 @@ const PageMenu = ({ menuList, loginInfo, setModalOpen }) => {
         }}
       >
         <DecoImgBox>
-          <img src={process.env.PUBLIC_URL + `image/menu-${e.menu}.png`} alt={`${e.menu}`} />
+          <img src={process.env.PUBLIC_URL + `/image/menu-${e.menu}.png`} alt={`${e.menu}`} />
         </DecoImgBox>
         <TextBox>
           <p className="sub-name">{e.subTitle}</p>

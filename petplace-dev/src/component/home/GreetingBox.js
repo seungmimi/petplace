@@ -77,7 +77,7 @@ const GreetingBox = ({ loginInfo }) => {
       {loginInfo.status ? (
         <GreetingArea>
           <div className="profile-img">
-            <img src={process.env.PUBLIC_URL + "image/basic-profile.png"} alt="profile" />
+            <img src={process.env.PUBLIC_URL + "/image/basic-profile.png"} alt="profile" />
           </div>
           <div className="greeting-ment">
             <p>안녕하세요!</p>
@@ -95,12 +95,22 @@ const GreetingBox = ({ loginInfo }) => {
             <p>입니다!</p>
           </div>
           <div className="welcome-img">
-            <img src={process.env.PUBLIC_URL + "image/deco-greeting-box.png"} alt="" />
+            <img src={process.env.PUBLIC_URL + "/image/deco-greeting-box.png"} alt="" />
           </div>
         </GreetingArea>
       )}
       {loginInfo.status ? (
         <MenuArea>
+          <li>
+            <button
+              className="guide-btn"
+              onClick={() => {
+                setOpenGuide(true);
+              }}
+            >
+              가이드 보러가기
+            </button>
+          </li>
           <li>
             <Link to="/bookmark">즐겨찾기</Link>
           </li>

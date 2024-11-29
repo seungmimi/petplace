@@ -35,7 +35,7 @@ function ContentTitleBox(item) {
       <strong>{item.title}</strong>
       <p>{item.subTitle}</p>
       <div className="title-box-deco">
-        <img src={process.env.PUBLIC_URL + `image/title-deco-${item.image}.png`} alt="" />
+        <img src={process.env.PUBLIC_URL + `/image/title-deco-${item.image}.png`} alt="" />
       </div>
     </BoxWrap>
   );

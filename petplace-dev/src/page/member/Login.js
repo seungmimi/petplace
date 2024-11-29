@@ -23,13 +23,13 @@ function Login() {
   return (
     <>
       <div className="member-bottom-deco">
-        <img src={process.env.PUBLIC_URL + "image/deco-left-plant.png"} alt="" className="left" />
-        <img src={process.env.PUBLIC_URL + "image/deco-right-plant.png"} alt="" className="right" />
+        <img src={process.env.PUBLIC_URL + "/image/deco-left-plant.png"} alt="" className="left" />
+        <img src={process.env.PUBLIC_URL + "/image/deco-right-plant.png"} alt="" className="right" />
       </div>
       <section className="member-area custom-scroll-1">
         <h2 className="member-title">
           <p>반려동물과 함께할 수 있는 다양한 장소</p>
-          <img src={process.env.PUBLIC_URL + "image/pageTitle.png"} alt="petplace" />
+          <img src={process.env.PUBLIC_URL + "/image/pageTitle.png"} alt="petplace" />
           <p className="a11y-hidden">petplace</p>
         </h2>
         <div className="member-box login">

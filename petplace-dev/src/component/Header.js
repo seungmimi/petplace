@@ -83,7 +83,7 @@ const Header = ({ userInfo }) => {
   return (
     <HeaderBox>
       <Link to={"/home"}>
-        <img src={process.env.PUBLIC_URL + "image/header-logo.png"} alt="prtplace" />
+        <img src={process.env.PUBLIC_URL + "/image/header-logo.png"} alt="prtplace" />
       </Link>
       <Navigate>
         <Link to={"/map"}>지도에서 둘러보기</Link>
@@ -99,7 +99,7 @@ const Header = ({ userInfo }) => {
                   setFloatOpen(!floatOpen);
                 }}
               >
-                <img src={process.env.PUBLIC_URL + "image/basic-profile.png"} alt="" />
+                <img src={process.env.PUBLIC_URL + "/image/basic-profile.png"} alt="" />
                 <strong>
                   {userInfo.name}
                   <span> 님</span>
